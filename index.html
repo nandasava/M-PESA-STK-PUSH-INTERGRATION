@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin Peter Nandasava | Payment Integration Services in Kenya</title>
+    <meta name="description" content="Professional payment integration services in Kenya including Safaricom M-Pesa, PayPal, cryptocurrency, and all payment gateway solutions by Martin Peter Nandasava.">
+    <meta name="keywords" content="Safaricom API Kenya, M-Pesa integration Kenya, PayPal integration Kenya, cryptocurrency payment Kenya, payment gateway Kenya, Martin Peter Nandasava">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 166, 81, 0.1);
+            box-shadow: 0 0 30px rgba(0, 166, 81, 0.1);
+            animation: float 15s infinite linear;
+        }
+        
+        .bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 15%;
+            animation-duration: 20s;
+        }
+        
+        .bubble:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 80%;
+            animation-duration: 25s;
+            background: rgba(0, 156, 222, 0.1);
+        }
+        
+        .bubble:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 40%;
+            left: 85%;
+            animation-duration: 18s;
+            background: rgba(247, 147, 26, 0.1);
+        }
+        
+        .bubble:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            left: 10%;
+            animation-duration: 22s;
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .bubble:nth-child(5) {
+            width: 50px;
+            height: 50px;
+            top: 20%;
+            left: 50%;
+            animation-duration: 17s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.3;
+                border-radius: 50%;
+            }
+            50% {
+                opacity: 0.8;
+                border-radius: 45%;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0.3;
+                border-radius: 50%;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(0, 166, 81, 0.9), rgba(0, 156, 222, 0.9), rgba(247, 147, 26, 0.7));
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            max-width: 1000px;
+            color: white;
+            animation: gradientShift 10s ease infinite;
+            background-size: 200% 200%;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo span {
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+        }
+        
+        .header-content p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin: 40px auto;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #00A651, #009cde, #F7931A);
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00A651, #009cde);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 30px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 166, 81, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 166, 81, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 166, 81, 0); }
+        }
+        
+        .profile-image i {
+            font-size: 70px;
+            color: white;
+        }
+        
+        .profile-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .profile-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .expertise-badge {
+            background: #f1f8ff;
+            border: 1px solid #d1e7ff;
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            color: #1e6bb8;
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services section */
+        .services-section {
+            padding: 40px 0;
+            margin: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #00A651, #009cde, #F7931A);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .safaricom-card { border-top-color: #00A651; }
+        .paypal-card { border-top-color: #009cde; }
+        .crypto-card { border-top-color: #F7931A; }
+        .other-card { border-top-color: #8b5cf6; }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #2c3e50;
+        }
+        
+        .service-card h3 i {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .safaricom-card h3 i { background: #00A651; }
+        .paypal-card h3 i { background: #009cde; }
+        .crypto-card h3 i { background: #F7931A; }
+        .other-card h3 i { background: #8b5cf6; }
+        
+        .service-card ul {
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .service-card ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            color: #555;
+        }
+        
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .safaricom-card ul li:before { color: #00A651; }
+        .paypal-card ul li:before { color: #009cde; }
+        .crypto-card ul li:before { color: #F7931A; }
+        .other-card ul li:before { color: #8b5cf6; }
+        
+        .code-block {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #eaeaea;
+            position: relative;
+        }
+        
+        .code-block pre {
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .code-block .comment {
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Contact section */
+        .contact-section {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #00A651, #009cde, #F7931A);
+        }
+        
+        .contact-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .contact-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #555;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-method {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            min-width: 250px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eaeaea;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to bottom right, #f8f9fa, #eef7ff);
+        }
+        
+        .contact-method i {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .contact-method h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .contact-method p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .contact-method a {
+            color: #009cde;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .contact-method a:hover {
+            color: #00A651;
+            text-decoration: underline;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(to right, #00A651, #009cde);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 156, 222, 0.3);
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 156, 222, 0.4);
+            background: linear-gradient(to right, #009cde, #00A651);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 30px 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #00A651, #009cde, #F7931A);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+        
+        .social-links a:hover {
+            background: #009cde;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 156, 222, 0.3);
+        }
+        
+        footer p {
+            margin: 10px 0;
+            color: #555;
+        }
+        
+        footer a {
+            color: #009cde;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: #00A651;
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+            color: #777;
+            font-size: 1rem;
+        }
+        
+        /* SEO Content Section */
+        .seo-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .seo-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .seo-section p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .seo-section h3 {
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+            color: #00A651;
+        }
+        
+        .seo-section ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .seo-section ul li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-method {
+                width: 100%;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+            
+            .expertise {
+                justify-content: center;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .seo-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span>Payment Integration Services</span>
+            </div>
+            <div class="header-content">
+                <h1>Professional <span>Payment Gateway</span> Solutions</h1>
+                <p>Expert integration of Safaricom M-Pesa, PayPal, cryptocurrency, and all payment systems for your business</p>
+                <a href="#contact" class="btn">
+                    <i class="fas fa-paper-plane"></i> Get Started Today
+                </a>
+            </div>
+        </header>
+        
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-image">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="profile-content">
+                <h2>Martin Peter Nandasava</h2>
+                <p>Payment Integration Specialist with 7+ years of experience implementing secure payment solutions for businesses worldwide.</p>
+                
+                <div class="expertise">
+                    <div class="expertise-badge">Safaricom API</div>
+                    <div class="expertise-badge">PayPal Integration</div>
+                    <div class="expertise-badge">Cryptocurrency</div>
+                    <div class="expertise-badge">Payment Gateways</div>
+                    <div class="expertise-badge">Kenya Payment Solutions</div>
+                    <div class="expertise-badge">Mobile Money</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SEO Content Section -->
+        <div class="seo-section">
+            <h2>Professional Payment Integration Services in Kenya</h2>
+            <p>Martin Peter Nandasava offers expert payment integration services in Kenya, providing seamless and secure payment solutions for businesses of all sizes. With extensive experience in Safaricom M-Pesa integration, PayPal API implementation, cryptocurrency payment gateways, and other payment processing systems, Martin helps businesses streamline their payment processes and enhance customer experience.</p>
+            
+            <h3>Why Choose Our Payment Integration Services?</h3>
+            <ul>
+                <li><strong>Local Expertise:</strong> Specialized in Kenya's unique payment ecosystem including M-Pesa and mobile money solutions</li>
+                <li><strong>Global Solutions:</strong> Integration with international payment gateways like PayPal, Stripe, and cryptocurrency platforms</li>
+                <li><strong>Custom Development:</strong> Tailored solutions to meet your specific business requirements</li>
+                <li><strong>Secure Implementation:</strong> PCI-DSS compliant solutions with robust security measures</li>
+                <li><strong>24/7 Support:</strong> Ongoing maintenance and support for your payment systems</li>
+            </ul>
+            
+            <h3>Payment Solutions for Kenyan Businesses</h3>
+            <p>In Kenya's rapidly evolving digital economy, having a reliable payment integration solution is crucial for business success. Martin specializes in creating payment solutions that cater specifically to the Kenyan market, including:</p>
+            
+            <ul>
+                <li>M-Pesa STK Push (Lipa Na M-Pesa Online) integration</li>
+                <li>PayPal integration for international payments</li>
+                <li>Cryptocurrency payment gateways (Bitcoin, Ethereum, etc.)</li>
+                <li>Credit/debit card processing (Visa, Mastercard)</li>
+                <li>Mobile money solutions (Airtel Money, T-Kash)</li>
+                <li>Custom payment gateway development</li>
+            </ul>
+            
+            <p>Whether you're an e-commerce store, SaaS provider, or enterprise business, Martin can implement a payment solution that enhances your revenue streams and improves customer satisfaction.</p>
+        </div>
+        
+        <!-- Services Section -->
+        <div class="services-section">
+            <div class="section-title">
+                <h2>Payment Integration Services</h2>
+                <p>Comprehensive solutions tailored to your business needs with secure and reliable implementation</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Safaricom API Card -->
+                <div class="service-card safaricom-card">
+                    <h3><i class="fas fa-mobile-alt"></i> Safaricom M-Pesa</h3>
+                    <p>Integrate Kenya's leading mobile money service with your platform:</p>
+                    <ul>
+                        <li>M-Pesa STK Push (Lipa Na M-Pesa Online)</li>
+                        <li>C2B payment processing</li>
+                        <li>B2C payment disbursements</li>
+                        <li>Transaction status queries</li>
+                        <li>Account balance management</li>
+                        <li>Reversal of transactions</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre>// Example: Initiate M-Pesa STK Push
+const stkPush = async (phone, amount, accountRef) => {
+  const response = await fetch('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      BusinessShortCode: "174379",
+      Password: Buffer.from("174379" + passkey + timestamp).toString("base64"),
+      Timestamp: timestamp,
+      TransactionType: "CustomerPayBillOnline",
+      Amount: amount,
+      PartyA: phone,
+      PartyB: "174379",
+      PhoneNumber: phone,
+      CallBackURL: "https://yourdomain.com/callback",
+      AccountReference: accountRef,
+      TransactionDesc: "Payment for services"
+    })
+  });
+  return await response.json();
+};</pre>
+                    </div>
+                </div>
+                
+                <!-- PayPal API Card -->
+                <div class="service-card paypal-card">
+                    <h3><i class="fab fa-paypal"></i> PayPal Integration</h3>
+                    <p>Global payment processing with the world's most recognized platform:</p>
+                    <ul>
+                        <li>Express Checkout integration</li>
+                        <li>Subscription and recurring payments</li>
+                        <li>Payment gateway for e-commerce</li>
+                        <li>Mass payouts to multiple recipients</li>
+                        <li>Invoicing and billing solutions</li>
+                        <li>Fraud protection and security</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre>// Example: Create PayPal payment
+const createPayment = async (amount, description) => {
+  const response = await fetch('https://api.paypal.com/v1/payments/payment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`
+    },
+    body: JSON.stringify({
+      intent: 'sale',
+      payer: { payment_method: 'paypal' },
+      transactions: [{
+        amount: { total: amount, currency: 'USD' },
+        description: description
+      }],
+      redirect_urls: {
+        return_url: 'https://yourdomain.com/success',
+        cancel_url: 'https://yourdomain.com/cancel'
+      }
+    })
+  });
+  return await response.json();
+};</pre>
+                    </div>
+                </div>
+                
+                <!-- Crypto Payments Card -->
+                <div class="service-card crypto-card">
+                    <h3><i class="fas fa-coins"></i> Cryptocurrency Payments</h3>
+                    <p>Integrate cutting-edge cryptocurrency payment solutions:</p>
+                    <ul>
+                        <li>Bitcoin, Ethereum, and other major cryptocurrencies</li>
+                        <li>Secure wallet integration</li>
+                        <li>Real-time exchange rate calculation</li>
+                        <li>Blockchain transaction monitoring</li>
+                        <li>Token payment systems</li>
+                        <li>Crypto to fiat conversion</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre>// Example: Create crypto payment invoice
+const createCryptoInvoice = async (amount, currency, crypto) => {
+  const response = await fetch('https://api.cryptogateway.com/v1/invoices', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      price_amount: amount,
+      price_currency: currency,
+      receive_currency: crypto,
+      title: "Service Payment",
+      description: "Payment for online services",
+      callback_url: "https://yourdomain.com/callback"
+    })
+  });
+  return await response.json();
+};</pre>
+                    </div>
+                </div>
+                
+                <!-- Other Payments Card -->
+                <div class="service-card other-card">
+                    <h3><i class="fas fa-credit-card"></i> Other Payment Integrations</h3>
+                    <p>Comprehensive solutions for all payment providers:</p>
+                    <ul>
+                        <li>Credit/Debit Card processing (Visa, Mastercard)</li>
+                        <li>Mobile money integrations (Airtel Money, T-Kash)</li>
+                        <li>Bank transfer solutions</li>
+                        <li>Digital wallets (Apple Pay, Google Pay)</li>
+                        <li>Regional payment providers</li>
+                        <li>Custom payment gateway development</li>
+                    </ul>
+                    <div class="code-block">
+                        <pre>// Example: Process credit card payment
+const processCardPayment = async (cardData, amount) => {
+  const response = await fetch('https://api.paymentprocessor.com/v1/charges', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify({
+      amount: amount,
+      currency: "USD",
+      source: {
+        number: cardData.number,
+        exp_month: cardData.exp_month,
+        exp_year: cardData.exp_year,
+        cvc: cardData.cvc
+      },
+      description: "Online purchase"
+    })
+  });
+  return await response.json();
+};</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact-section" id="contact">
+            <h2>Get in Touch</h2>
+            <p>Contact me for professional payment integration services tailored to your business requirements</p>
+            
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/254740830343">+254 740 830343</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+254740830343">+254 740 830343</a>
+                </div>
+                
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:martinnandasava@gmail.com">martinnandasava@gmail.com</a>
+                </div>
+            </div>
+            
+            <p>Response time: Within 24 hours | Available worldwide</p>
+            <a href="https://wa.me/254740830343" class="btn">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="contact-details">
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/254740830343">+254 740 830343</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+254740830343">+254 740 830343</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:martinnandasava@gmail.com">martinnandasava@gmail.com</a></p>
+            </div>
+            
+            <p class="copyright">&copy; 2023 Martin Peter Nandasava | Payment Integration Expert</p>
+            <p>Professional API integration services for businesses in Kenya and worldwide</p>
+        </footer>
+    </div>
+
+    <script>
+        // Service card animations
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.12)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.08)';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // SEO optimization for Kenya market
+        document.title = "Martin Peter Nandasava | Payment Integration Services in Kenya";
+    </script>
+</body>
+</html>
